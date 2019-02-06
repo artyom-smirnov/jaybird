@@ -1,9 +1,10 @@
-#
 language: java
 
 dist: xenial
 
-jdk: openjdk8
+jdk:
+  - openjdk8
+  - openjdk7
 
 addons:
   apt:
