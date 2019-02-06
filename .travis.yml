@@ -2,14 +2,15 @@ language: java
 
 dist: xenial
 
-jdk:
-  - openjdk8
-  - openjdk7
+jdk: openjdk8
 
 addons:
   apt:
     packages:
     - ant
+    - xinetd
+    - firebird2.5-classic
 
 script:
-  - ./build.sh jars
+  - sudo /etc/init.d/xinetd restart
+  - ./build.sh
