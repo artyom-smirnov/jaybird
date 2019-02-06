@@ -9,8 +9,7 @@ addons:
     packages:
     - ant
     - xinetd
-    - firebird2.5-classic
 
 script:
-  - sudo /etc/init.d/xinetd restart
+  - sudo apt install -y firebird2.5-classic
   - ./build.sh
