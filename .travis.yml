@@ -1,0 +1,13 @@
+language: java
+
+dist: xenial
+
+jdk: openjdk8
+
+addons:
+  apt:
+    packages:
+    - ant
+
+script:
+  - ./build.sh jars
