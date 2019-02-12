@@ -1,15 +1,19 @@
-language: java
-
 dist: xenial
+sudo: required
 
+language: java
 jdk: openjdk8
 
 addons:
   apt:
     packages:
     - ant
-    - xinetd
+
+install:
+  - wget -O Firebird-3.0.4.33054-0.amd64.tar.gz "https://github.com/FirebirdSQL/firebird/releases/download/R3_0_4/Firebird-3.0.4.33054-0.amd64.tar.gz"
+  - tar xzvf Firebird-3.0.4.33054-0.amd64.tar.gz
+  - (cd Firebird-3.0.4.33054-0.amd64; sudo ./install.sh -silent)
+  - sudo usermod -a -G firebird travis
 
 script:
-  - sudo apt install -y firebird2.5-classic
   - ./build.sh
